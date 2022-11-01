@@ -112,4 +112,4 @@ exports
 build
 
 #possible conflict with heroku
-yarn.lock
+*.lock
