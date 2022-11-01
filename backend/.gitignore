@@ -111,5 +111,3 @@ exports
 .cache
 build
 
-#possible conflict with heroku
-*.lock
