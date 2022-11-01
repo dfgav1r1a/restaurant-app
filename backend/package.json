@@ -20,8 +20,6 @@
   "dependencies": {
     "knex": "^0.21.6",
     "lodash": "^4.17.5",
-    "pg": "^8.8.0",
-    "pg-connection-string": "^2.5.0",
     "sqlite3": "^5.0.0",
     "strapi": "3.0.0-beta.14",
     "strapi-admin": "3.0.0-beta.14",
@@ -34,6 +32,7 @@
     "strapi-plugin-settings-manager": "3.0.0-beta.14",
     "strapi-plugin-upload": "3.0.0-beta.14",
     "strapi-plugin-users-permissions": "3.0.0-beta.14",
+    "strapi-provider-upload-aws-s3": "^3.0.0-beta.20.3",
     "strapi-utils": "3.0.0-beta.14",
     "stripe": "^8.109.0"
   },
@@ -44,7 +43,7 @@
     "uuid": "a45046ad-52e3-426c-a7aa-25c5de132bfe"
   },
   "engines": {
-    "node": ">=12.5.0"
+    "node": "12.5.0"
   },
   "license": "MIT"
 }
