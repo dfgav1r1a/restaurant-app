@@ -110,3 +110,6 @@ coverage
 exports
 .cache
 build
+
+#possible conflict with heroku
+package-lock.json
