@@ -20,6 +20,9 @@
     "react-dom": "16.14.0",
     "reactstrap": "^8.6.0"
   },
+  "engines": {
+    "node": "14.17.6"
+  },
   "description": "Exercise05 is full Shopping Cart with Stripe Billing",
   "main": "index.js",
   "author": "jrw@mit.edu",
