@@ -7,5 +7,3 @@ node_modules
 #env variable
 .env.development
 
-#possible conflict with heroku
-*.lock
