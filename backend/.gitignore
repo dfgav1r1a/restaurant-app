@@ -111,3 +111,6 @@ exports
 .cache
 build
 
+docker-compose.yml
+.env
+app
