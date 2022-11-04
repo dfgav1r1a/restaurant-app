@@ -1,46 +1,34 @@
 version: "3"
 
 services:
-  strapiexample:
-    image: strapi/strapi
-    container_name: strapirestaurantapp
-    restart: unless-stopped
-    env_file: .env
-    environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_HOST: ${DATABASE_HOST}
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+  strapibackend:
+    image: strapibackend
+    container_name: strapibackend
     networks:
       - strapi-app-network
-    volumes:
-      - ./app:/srv/app
     ports:
        [1337:1337]
 
-  mongoexample:
-    image: mongo:4.4
-    container_name: mongo-strapi
-    restart: unless-stopped
-    env_file: .env
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+  restaurapp-frontend:
+    image: restaurant-app
+    container_name: restaurapp-frontend
+    command: npm run dev
+    depends_on:
+      - strapibackend
     networks:
       - strapi-app-network
     volumes:
-      - strapidata:/data/db
+      - ./frontend:/usr/src/app
     ports:
-      - "27017:27017"
+      - "3000:3000"
 
 networks:
   strapi-app-network:
     driver: bridge
 
 volumes:
-  strapidata:
+  strapibackend:
+    driver: local
 
 
 
