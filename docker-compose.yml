@@ -2,7 +2,8 @@ version: "3"
 
 services:
   strapibackend:
-    image: strapibackend
+    image: dfgaviria/strapibackend
+    build: backend
     container_name: strapibackend
     networks:
       - strapi-app-network
@@ -10,15 +11,14 @@ services:
        [1337:1337]
 
   restaurapp-frontend:
-    image: restaurant-app
+    image: dfgaviria/restaurant-app
+    build: frontend
     container_name: restaurapp-frontend
     command: npm run dev
     depends_on:
       - strapibackend
     networks:
       - strapi-app-network
-    volumes:
-      - ./frontend:/usr/src/app
     ports:
       - "3000:3000"
 

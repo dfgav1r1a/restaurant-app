@@ -20,6 +20,7 @@ function RestaurantList(props) {
   const [restaurantID, setRestaurantID] = useState(0)
   const { cart } = useContext(AppContext);
   const [state, setState] = useState(cart)
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
   const GET_RESTAURANTS = gql`
     query {
       restaurants {
@@ -58,7 +59,7 @@ function RestaurantList(props) {
             top={true}
             style={{ height: 200 }}
             src={
-              `http://localhost:1337` + res.image.url
+              `${API_URL}` + res.image.url
             }
           />
           <CardBody>
