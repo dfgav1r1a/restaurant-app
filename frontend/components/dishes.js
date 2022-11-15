@@ -15,7 +15,7 @@ import {
 function Dishes({restId}){
   const [restaurantID, setRestaurantID] = useState()
   const {addItem} = useContext(AppContext)
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
   const GET_RESTAURANT_DISHES = gql(`
     query($id: ID!) {
       restaurant(id: $id) {
@@ -45,7 +45,7 @@ function Dishes({restId}){
   if (!data) return <p>Not found</p>;
 
   let restaurant = data.restaurant;
-
+  console.log(restaurant);
   if (restId > 0){
 
     return (
@@ -56,7 +56,7 @@ function Dishes({restId}){
                 <CardImg
                   top={true}
                   style={{ height: 150, width:150 }}
-                  src={`${API_URL}` + res.image.url}
+                  src={API_URL+res.image.url}
                 />
                 <CardBody>
                   <CardTitle>{res.name}</CardTitle>
